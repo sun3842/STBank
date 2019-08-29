@@ -1,0 +1,77 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class PWindow extends JFrame
+{
+	
+	public PWindow()
+	{
+		super("Login Panel");
+		setSize(500,500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JPanel p=new JPanel(new GridBagLayout());
+		p.setLayout(null);
+		
+		JButton b=new JButton("Employee");
+		b.setBounds(145, 75, 200, 70);
+		b.setBackground(Color.blue);
+		b.setForeground(Color.WHITE);
+		JButton b2=new JButton("Customer");
+		b2.setBounds(145, 245, 200, 70);
+		b2.setBackground(Color.blue);
+		b2.setForeground(Color.WHITE);
+		
+		GridBagConstraints gbc =new GridBagConstraints();
+		gbc.insets=new Insets(15,15,15,15);
+		
+		
+		
+		p.add(b,gbc);
+		p.add(b2,gbc);
+		add(p,BorderLayout.CENTER);
+		
+		b.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				EWindow F2=new EWindow();
+				//F2.setSize(500,500);
+				setVisible(false);
+				dispose();
+				F2.setVisible(true);
+				
+			}
+		});
+		b2.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				CWindow C=new CWindow();
+				//F2.setSize(500,500);
+				setVisible(false);
+				dispose();
+				C.setVisible(true);	
+			}
+		});
+		
+	}
+
+}

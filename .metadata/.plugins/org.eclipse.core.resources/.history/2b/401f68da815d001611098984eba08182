@@ -1,0 +1,92 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class CustomerWindow extends JFrame
+{
+	public CustomerWindow()
+	{
+		super("Customer");
+		
+		setSize(500,500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JPanel p=new JPanel(new GridBagLayout());
+		p.setLayout(null);
+		JPanel p3=new JPanel(new GridBagLayout());
+		p3.setLayout(null);
+		
+		
+		JButton b=new JButton("CASH WITHDRAWL");
+		b.setBounds(10, 45, 200, 70);
+		b.setBackground(Color.blue);
+		b.setForeground(Color.WHITE);
+		
+		JButton c=new JButton("BALANCE INQUIRY");
+		c.setBounds(275, 45, 200, 70);
+		c.setBackground(Color.blue);
+		c.setForeground(Color.WHITE);
+		
+		JButton d=new JButton("FIRST CASH");
+		d.setBounds(10, 250, 200, 70);
+		d.setBackground(Color.blue);
+		d.setForeground(Color.WHITE);
+		
+		JButton e=new JButton("PIN CHANGE");
+		e.setBounds(275, 250, 200, 70);
+		e.setBackground(Color.blue);
+		e.setForeground(Color.WHITE);
+
+		
+		JLabel label=new JLabel("Select an option");
+		label.setBounds(10, 45, 200, 70);
+		label.setBackground(Color.blue);
+		label.setForeground(Color.WHITE);
+		
+		
+		
+		
+		GridBagConstraints gbc =new GridBagConstraints();
+		gbc.insets=new Insets(15,15,15,15);
+		
+		
+		p3.add(label,gbc);
+		
+		p.add(b,gbc);//CASH WITHDRAWL
+		
+		p.add(c,gbc);//BALANCE INQUIRY
+		
+		p.add(d,gbc);//FIRST CASH
+		
+		p.add(e,gbc);//PIN CHANGE
+		
+		
+		add(p,BorderLayout.CENTER);
+		add(p3,BorderLayout.NORTH);
+		
+		b.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				JOptionPane.showMessageDialog(null," ");
+
+			}
+		});
+		
+	}
+
+}

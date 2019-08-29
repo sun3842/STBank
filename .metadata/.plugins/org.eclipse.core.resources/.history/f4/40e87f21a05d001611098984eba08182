@@ -1,0 +1,114 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class PWindow extends JPanel
+{
+	private JFrame myFrame=new JFrame("test");
+	public PWindow()
+	{
+		myFrame.add(this);
+		
+		//super("Login Panel");
+		myFrame.setSize(500,500);
+		myFrame.setVisible(true);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//myFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JPanel p=new JPanel(new GridBagLayout());
+		p.setLayout(null);
+		JPanel p10=new JPanel();
+		JLabel label10=new JLabel(" ");
+		Image img4 =new ImageIcon(this.getClass().getResource("/LOGO.png")).getImage();
+		label10.setIcon(new ImageIcon(img4));
+		//p10.add(label10);
+		this.add(label10);
+		
+		
+		JButton b=new JButton("Employee");
+		Image img =new ImageIcon(this.getClass().getResource("/em.png")).getImage();
+		b.setIcon(new ImageIcon(img));
+		Font f1=new Font("Arial",Font.BOLD,35);
+		b.setFont(f1);
+		b.setBounds(115, 150, 275, 70);
+		b.setBackground(Color.blue);
+		b.setForeground(Color.WHITE);
+		JButton b2=new JButton("Customer");
+		Image img2 =new ImageIcon(this.getClass().getResource("/us.png")).getImage();
+		b2.setIcon(new ImageIcon(img2));
+		Font f2=new Font("Arial",Font.BOLD,35);
+		b2.setFont(f2);
+		b2.setBounds(115, 245, 270, 70);
+		b2.setBackground(Color.blue);
+		b2.setForeground(Color.WHITE);
+		
+		GridBagConstraints gbc =new GridBagConstraints();
+		gbc.insets=new Insets(15,15,15,15);
+		
+		
+		
+		//p.add(b,gbc);
+		this.add(b, gbc);
+		//p.add(b2,gbc);
+		this.add(b2, gbc);
+		this.add(p10,BorderLayout.NORTH);
+		this.add(p,BorderLayout.CENTER);
+		
+		b.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				EWindow F2=new EWindow();
+				//F2.setSize(500,500);
+				setVisible(false);
+				myFrame.dispose();
+				F2.setVisible(true);
+				
+			}
+		});
+		b2.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				CWindow C=new CWindow();
+				//F2.setSize(500,500);
+				setVisible(false);
+				//dispose();
+				C.setVisible(true);	
+			}
+		});
+		
+	}
+	protected void paintComponent(Graphics g){
+		super.paintComponent(g);
+		this.setLayout(new FlowLayout());
+		
+		Image image=new ImageIcon("D:\\Bachelor of Science in Computer Science & Engineering\\2015-2016,Summer 7\\OBJECT ORIENTED PROGRAMMING 1 (JAVA) [H]\\Final\\GUI\\2016\\bw.jpeg").getImage();
+		int x=getSize().width;
+		int y=getSize().height;
+		g.drawImage(image, 0, 0,x,y, null);
+		
+	}
+
+}

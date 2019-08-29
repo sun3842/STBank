@@ -1,0 +1,90 @@
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class EmployeeWindow extends JPanel
+{
+	private JFrame J2=new JFrame();
+	public EmployeeWindow()
+	{
+		//super("     ");
+		
+		J2.add(this);
+		J2.setSize(500,500);
+		J2.setVisible(true);
+		//J2.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JPanel p=new JPanel();
+		JPanel p3=new JPanel(new GridBagLayout());
+		
+		JButton b=new JButton("Login");
+		
+		
+		JLabel label=new JLabel("Customer ID :");
+		JLabel label2=new JLabel("Password :");
+		JTextField textField=new JTextField("XX-XXXXX-X");
+		JTextField textField2=new JTextField("XXXXXXXX");
+		
+		GridBagConstraints gbc =new GridBagConstraints();
+		gbc.insets=new Insets(15,15,15,15);
+		
+		p.add(b);
+	
+		
+		gbc.gridx=0;
+		gbc.gridy=0;
+		p3.add(label,gbc);
+		gbc.gridx=1;
+		gbc.gridy=0;
+		p3.add(textField,gbc);
+		
+		gbc.gridx=0;
+		gbc.gridy=1;
+		p3.add(label2,gbc);
+		gbc.gridx=1;
+		gbc.gridy=1;
+		p3.add(textField2,gbc);
+		
+		
+		add(p3,BorderLayout.CENTER);
+		add(p,BorderLayout.SOUTH);
+		
+		b.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				JOptionPane.showMessageDialog(null,S);
+
+			}
+		});
+		
+	}
+	protected void paintComponent(Graphics g){
+		super.paintComponent(g);
+		this.setLayout(new FlowLayout());
+		
+		Image image=new ImageIcon("D:\\Bachelor of Science in Computer Science & Engineering\\2015-2016,Summer 7\\OBJECT ORIENTED PROGRAMMING 1 (JAVA) [H]\\Final\\GUI\\2016\\bw.jpeg").getImage();
+		int x=getSize().width;
+		int y=getSize().height;
+		g.drawImage(image, 0, 0,x,y, null);
+		
+	}
+
+}
